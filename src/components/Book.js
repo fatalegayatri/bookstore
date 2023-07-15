@@ -17,6 +17,8 @@ const Book = ({ book, onDelete, onEdit }) => {
       <div className="card">
         {edit ? (
           <div className="card-body">
+            <img src="https://picsum.photos/200" alt="Book Image" />
+
             <h5 className="card-title">{book.title}</h5>
 
             <div className="btn-group" role="group" aria-label="Basic example">

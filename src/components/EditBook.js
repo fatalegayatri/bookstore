@@ -14,7 +14,7 @@ const EditBook = ({ onEdit, book, onSave }) => {
 
   return (
     <div>
-      <form className="form-group" onSubmit={handleSubmit}>
+      <form className="form-container" onSubmit={handleSubmit}>
         <label htmlFor="title">Title</label>
         <input
           type="text"

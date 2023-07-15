@@ -28,9 +28,14 @@ const App = () => {
   };
   return (
     <>
-      {console.log(books)}
       <CreateBook onCreate={HandleBookCreate} />
-      <BookList books={books} onDelete={DeleteBook} onEdit={EditBook} />
+      {books.length > 0 ? (
+        <>
+          <BookList books={books} onDelete={DeleteBook} onEdit={EditBook} />
+        </>
+      ) : (
+        <h1 className="form-title"> No Book Added yet !! </h1>
+      )}
     </>
   );
 };

@@ -17,7 +17,9 @@ const CreateBook = ({ onCreate }) => {
       <h1 className="form-title"> Add New Book </h1>
       <form action="" onSubmit={handlesubmit}>
         <div className="input-wrapper">
-          <label htmlFor="title">Title</label>
+          <label htmlFor="title" className="">
+            Title
+          </label>
           <input
             type="text"
             id="title"
