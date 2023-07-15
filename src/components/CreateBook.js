@@ -1,5 +1,7 @@
 import React from "react";
 import { useState } from "react";
+import "../style.css";
+
 const CreateBook = ({ onCreate }) => {
   const [title, setTitle] = useState("");
   const handleChange = (event) => {
@@ -11,12 +13,21 @@ const CreateBook = ({ onCreate }) => {
     setTitle("");
   };
   return (
-    <div>
-      <h1> Add New Book </h1>
+    <div className="form-container">
+      <h1 className="form-title"> Add New Book </h1>
       <form action="" onSubmit={handlesubmit}>
-        <label htmlFor="title">Title</label>
-        <input type="text" id="title" value={title} onChange={handleChange} />
-        <button>Add Book !</button>
+        <div className="input-wrapper">
+          <label htmlFor="title">Title</label>
+          <input
+            type="text"
+            id="title"
+            value={title}
+            onChange={handleChange}
+            className="input"
+            required
+          />
+          <button className="btn">Add Book !</button>
+        </div>
       </form>
     </div>
   );
