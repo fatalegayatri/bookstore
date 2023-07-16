@@ -2,15 +2,29 @@ import React from "react";
 import "../style.css";
 import { useState } from "react";
 import EditBook from "./EditBook";
+import DeleteModule from "./DeleteModule";
 
 const Book = ({ book, onDelete, onEdit }) => {
   const [edit, setEdit] = useState(true);
-  const handleOnclick = () => {
+  const [deleteBook, setDeleteBook] = useState(false);
+
+  const handleEditclick = (id, title) => {
+    onEdit(id, title);
     setEdit(!edit);
   };
+  const handleDeleteclick = () => {
+    setDeleteBook(!deleteBook);
+  };
 
-  const handleDelete = () => {
-    onDelete(book.id);
+  const handleDelete = (boolean) => {
+    setDeleteBook(!deleteBook);
+    if (boolean) {
+      onDelete(book.id);
+    }
+  };
+
+  const handleCancel = (boolean) => {
+    setDeleteBook(boolean);
   };
   return (
     <div>
@@ -25,22 +39,24 @@ const Book = ({ book, onDelete, onEdit }) => {
               <button
                 type="button"
                 className="btn btn-secondary"
-                onClick={handleOnclick}
+                onClick={handleEditclick}
               >
                 Edit
               </button>
               <button
                 type="button"
                 className="btn btn-secondary"
-                onClick={handleDelete}
+                onClick={handleDeleteclick}
               >
                 Delete
               </button>
-              {/* <EditBook book={book} /> */}
+              {deleteBook && (
+                <DeleteModule onCancel={handleCancel} onDelete={handleDelete} />
+              )}
             </div>
           </div>
         ) : (
-          <EditBook book={book} onEdit={onEdit} onSave={handleOnclick} />
+          <EditBook book={book} onSave={handleEditclick} />
         )}
       </div>
     </div>
