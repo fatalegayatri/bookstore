@@ -1,11 +1,13 @@
 import React from "react";
 import Book from "./Book";
 import "../style.css";
-const BookList = ({ books, onDelete, onEdit }) => {
+import useBookContext from "../Hooks/Custom-hook-book";
+
+const BookList = () => {
+  const { books } = useBookContext();
+
   const renderedBooks = books.map((book) => {
-    return (
-      <Book key={book.id} book={book} onDelete={onDelete} onEdit={onEdit} />
-    );
+    return <Book key={book.id} book={book} />;
   });
   return <div className="card-container"> {renderedBooks}</div>;
 };

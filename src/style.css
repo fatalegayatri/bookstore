@@ -152,7 +152,7 @@ input {
   position: relative;
   background-color: rgba(0, 0, 0, 0.2);
   top: -250px;
-  left: 10px;
+  left: -70px;
 
   opacity: 0.9;
 }

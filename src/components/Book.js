@@ -3,13 +3,15 @@ import "../style.css";
 import { useState } from "react";
 import EditBook from "./EditBook";
 import DeleteModule from "./DeleteModule";
+import useBookContext from "../Hooks/Custom-hook-book";
+const Book = ({ book }) => {
+  const { EditBook, DeleteBook } = useBookContext();
 
-const Book = ({ book, onDelete, onEdit }) => {
   const [edit, setEdit] = useState(true);
   const [deleteBook, setDeleteBook] = useState(false);
 
   const handleEditclick = (id, title) => {
-    onEdit(book.id, title);
+    EditBook(book.id, title);
     setEdit(!edit);
   };
   const handleDeleteclick = () => {
@@ -19,7 +21,7 @@ const Book = ({ book, onDelete, onEdit }) => {
   const handleDelete = (boolean) => {
     setDeleteBook(!deleteBook);
     if (boolean) {
-      onDelete(book.id);
+      DeleteBook(book.id);
     }
   };
 
