@@ -3,9 +3,7 @@ import "../style.css";
 import { useState } from "react";
 const DeleteModule = ({ onDelete, onCancel }) => {
   const [close, setClose] = useState(false);
-  const closeModule = () => {
-    setClose(true);
-  };
+
   const handleCancelClick = () => {
     onCancel(close);
   };

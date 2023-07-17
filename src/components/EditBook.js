@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import "../style.css";
 const EditBook = ({ book, onSave }) => {
   const [title, setTitle] = useState(book.title);
   const handleChange = (event) => {
@@ -7,7 +7,6 @@ const EditBook = ({ book, onSave }) => {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("handleSubmit", title);
     onSave(book.id, title);
   };
 
@@ -17,7 +16,7 @@ const EditBook = ({ book, onSave }) => {
         <label htmlFor="title">Title</label>
         <input
           type="text"
-          className="form-control"
+          className="input"
           id="title"
           value={title}
           onChange={handleChange}

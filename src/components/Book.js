@@ -9,7 +9,7 @@ const Book = ({ book, onDelete, onEdit }) => {
   const [deleteBook, setDeleteBook] = useState(false);
 
   const handleEditclick = (id, title) => {
-    onEdit(id, title);
+    onEdit(book.id, title);
     setEdit(!edit);
   };
   const handleDeleteclick = () => {
@@ -45,7 +45,7 @@ const Book = ({ book, onDelete, onEdit }) => {
               </button>
               <button
                 type="button"
-                className="btn btn-secondary"
+                className="btn btn-danger"
                 onClick={handleDeleteclick}
               >
                 Delete

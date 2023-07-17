@@ -1,0 +1,32 @@
+
+
+# to get all  books
+
+GET  http://localhost:3001/books HTTP/1.1
+Content-Type: application/json
+
+
+###
+# to add new book
+POST http://localhost:3001/books HTTP/1.1
+Content-Type: application/json
+
+{
+    "title" : "my dear friend"
+}
+
+###
+
+#  to update/edit book
+PUT http://localhost:3001/books/5 HTTP/1.1
+Content-Type: application/json
+
+{
+    "title": "new title added"
+}
+
+###
+ 
+# to delete book
+ DELETE http://localhost:3001/books/3 HTTP/1.1
+ Content-Type: application/json
