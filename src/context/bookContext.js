@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useCallback } from "react";
 import axios from "axios";
 
 const BookContext = createContext();
@@ -36,15 +36,15 @@ function Provider({ children }) {
     });
     setBooks(updatedBooks);
   };
+  const stableFetchBooks = useCallback(fetchBooks, []);
   const valueToBePassed = {
     books,
-    fetchBooks,
+    stableFetchBooks,
     handleBookCreate,
     DeleteBook,
     EditBook,
   };
 
-  console.log(valueToBePassed);
   return (
     <BookContext.Provider value={valueToBePassed}>
       {children}

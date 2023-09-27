@@ -1,7 +1,7 @@
 import React from "react";
 import "../style.css";
 import { useState } from "react";
-import EditBook from "./EditBook";
+import EditBooks from "./EditBook";
 import DeleteModule from "./DeleteModule";
 import useBookContext from "../Hooks/Custom-hook-book";
 const Book = ({ book }) => {
@@ -10,9 +10,9 @@ const Book = ({ book }) => {
   const [edit, setEdit] = useState(true);
   const [deleteBook, setDeleteBook] = useState(false);
 
-  const handleEditclick = (id, title) => {
+  const handleEditclick = (id, title, boolean) => {
     EditBook(book.id, title);
-    setEdit(!edit);
+    setEdit(boolean);
   };
   const handleDeleteclick = () => {
     setDeleteBook(!deleteBook);
@@ -28,12 +28,13 @@ const Book = ({ book }) => {
   const handleCancel = (boolean) => {
     setDeleteBook(boolean);
   };
+  const newLocal = <img src="https://picsum.photos/200" alt="Book" />;
   return (
     <div>
       <div className="card">
         {edit ? (
           <div className="card-body">
-            <img src="https://picsum.photos/200" alt="Book Image" />
+            {newLocal}
 
             <h5 className="card-title">{book.title}</h5>
 
@@ -58,7 +59,7 @@ const Book = ({ book }) => {
             </div>
           </div>
         ) : (
-          <EditBook book={book} onSave={handleEditclick} />
+          <EditBooks book={book} onSave={handleEditclick} />
         )}
       </div>
     </div>

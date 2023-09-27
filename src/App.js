@@ -4,11 +4,10 @@ import BookList from "./components/BookList";
 import { useEffect } from "react";
 import useBookContext from "./Hooks/Custom-hook-book";
 const App = () => {
-  const { fetchBooks } = useBookContext();
-  console.log(fetchBooks);
+  const { stableFetchBooks } = useBookContext();
   useEffect(() => {
-    fetchBooks();
-  }, []);
+    stableFetchBooks();
+  }, [stableFetchBooks]);
 
   return (
     <>

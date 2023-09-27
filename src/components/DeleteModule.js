@@ -1,4 +1,5 @@
 import React from "react";
+import { AiFillCloseCircle } from "react-icons/ai";
 import "../style.css";
 import { useState } from "react";
 const DeleteModule = ({ onDelete, onCancel }) => {
@@ -13,6 +14,7 @@ const DeleteModule = ({ onDelete, onCancel }) => {
   return (
     <div className="module-container">
       <div className="module">
+        <AiFillCloseCircle className="close-icon" onClick={handleCancelClick} />
         <div className="">
           <h2 className="title">Delete Book</h2>
           <p>Are you sure you want to delete this Book?</p>
